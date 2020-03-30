@@ -1,0 +1,73 @@
+1.IT行业基础
+2-4.mysql基础
+5.mongodb基础
+6.oracle
+=================================
+1.常见的软件架构
+	微信                 c/s  b/s
+	QQ                  c/s  
+	农药、吃鸡            c/s 
+	三国杀               c/s b/s 单机
+	百度云               c/s 
+	头条                 c/s  b/s
+	支付宝               c/s 
+	百度                 c/s
+	暴风影音             c/s b/s
+	淘宝                 c/s b/s
+	美图                 c/s b/s
+	a.单机软件
+		不需要网络就可以执行的应用程序
+		hackercon  
+		defcon   
+	b.b/s架构软件
+		b:浏览器
+			IE        UC   360  傲游  搜狗  QQ
+			firefox   测试 
+			chrome    开发
+			safari    apple
+		s:服务器
+			性能很6的电脑
+		b/s架构测试：
+			不同浏览器不同版本的兼容性问题
+	c.c/s架构软件
+		c:客户端
+			pc端(电脑)
+			移动端(手机、ipad、智能终端)
+		s:服务器
+			性能很6的电脑
+		c/s架构的测试：
+			不同操作系统，不同版本的安装与反安装(软件捆绑)测试
+2.前端和后端
+	a.前端
+		html  标记性语言  静态页面
+		css   样式表      页面美化
+		js    动态页面   交互(跟数据库)  JavaScript
+			jquery 框架
+			java  后端开发
+			jsp   java server page
+		UI    用户接口   美工
+	b.b/s架构的后端
+		开发语言： java php c ruby perl
+		操作系统:
+			unix
+			linux
+			windows
+		web服务器
+			提供网页服务
+			apache   不支持java 
+			nginx    轻量级web服务器(反向代理、负载均衡)
+			tomcat   java
+			iis      微软
+		数据库服务器
+			提供数据服务
+			informix  IBM+HP 军、政、运、银 小机
+			db2       IBM    军、政、运、银  (3000w+6000w)X4
+			oracle    甲骨文  中大型
+			mysql     甲骨文  互联网公司
+			sqlsever  微软    
+
+
+
+
+
+
