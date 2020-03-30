@@ -225,7 +225,18 @@
 			web服务器软件和版本
 			时间
 		d5.响应体
-			
+	e.fiddler
+		e1.安装
+			傻瓜安装
+		e2.简介
+		e3.断点调试
+			bpu http://127.0.0.1/ecshop/
+		e4.取消断点
+			bpu
+		bpu http://127.0.0.1/ecshop/user.php
+
+
+
 
 
 
