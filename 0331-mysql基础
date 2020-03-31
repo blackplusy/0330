@@ -168,7 +168,71 @@
 			update goods set price=3000 where dname='memeda';
 			修改goods表中所有商品价格为0
 			update goods set price=0
-			
+	c.数据的删除
+		delete    可以删除指定数据，DML，删除数据可以找回
+		语法：delete from 表 where 条件
+			如果不加where删除的是整张表的数据
+			如果增加where删除的是指定数据
+			需求:删除goods表中名字是memeda的所有信息
+				delete from goods where dname='memeda';
+			需求:删除goods表中所有数据
+				delete from goods;
+		truncate  只能删除所有数据，DDL，删除数据无法找回,序列的初始化
+		语法:truncate table 表;
+			需求:删除goods表中所有数据
+			truncate table goods;
+9.数据的查询
+	a.查询的分类
+		简单查询(单表查询)
+		多表查询
+		分组查询
+		子查询
+	b.简单查询
+		https://blog.csdn.net/weixin_37678117/article/details/81192245
+		语法:select 列 from 表 where 条件;
+		查询可以查询指定列，指定行，指定行的列，所有数据
+		*代表所有列
+		需求:查询ecs_goods表中所有的数据
+		select * from ecs_goods;
+		需求:查询ecs_goods表中所有商品的名称
+		select goods_name from ecs_goods;
+		需求:查询ecs_goods表中商品名称为KD876的所有信息
+		select * from ecs_goods where goods_name='KD876';
+		需求:查询ecs_goods表中商品名称为KD876的本店售价
+		select shop_price from ecs_goods where goods_name='KD876';
+	c.where子句
+		c1.比较
+			>
+			<
+			=
+			>=
+			<=
+			!=
+			<>
+			需求:查询ecs_goods表中本店售价高于2000的所有商品名称
+				select goods_name from ecs_goods where shop_price>2000;
+				查询ecs_goods表中商品名称不是KD876的所有信息
+				select * from ecs_goods where goods_name<>'KD876';
+		c2.关系
+			and  同时满足
+			or   满足一个即可
+			not  不满足
+			需求:查询商品名称是KD876的或者本店售价低于1000的所有商品信息
+				select * from ecs_goods where goods_name='KD876' or shop_price<1000;
+				查询商品的本店售价高于1000并且低于2000的所有商品信息
+				select * from ecs_goods where shop_price>1000 and shop_price<2000;
+		c3.区间
+			包括两个端点，通常是范围
+			between...and...
+			需求:查询ecs_goods表中本店售价范围1000-1999之间的所有信息
+				select * from ecs_goods where shop_price>=1000 and shop_price<=1999;
+				select * from ecs_goods where shop_price between 1000 and 1999;
+				
+		c4.空值
+		c5.模糊查询
+		c6.in
+
+
 
 
 
