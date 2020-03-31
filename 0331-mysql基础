@@ -69,6 +69,66 @@
 		select * from ecs_goods\G
 		select * from ecs_goods
 			查看表名为ecs_goods的所有数据
+6.SQL(结构化查询语言)
+	DDL 数据库定义语言  create alter drop truncate
+	DML 数据库操作语言  insert delete update
+	DCL 数据库控制语言  grant revoke
+	DQL 数据库查询语言  select
+
+7.表结构
+	a.数据类型
+		数字  123 456         int
+		字符  'abc' '123'     char varchar
+		日期  '1988-01-01'    date
+	b.创建表结构
+		语法:
+		create table 表名(
+				列、字段  数据类型,
+				列、字段  数据类型,
+				。。。
+		);
+		最后一个列是没有逗号，列和列之间通过逗号分开
+		需求:创建表商品(goods),3个列，商品名称(name) 字符类型，价格(price) 数字类型，生产日期(ddate) 日期类型
+		create table goods (
+			name char(20),
+			price int,
+			ddate date
+		);
+		需求:创建员工表(emp),员工名字(ename),员工薪资(sal) 数字类型
+		create table emp(
+			ename char(10),
+			sal int
+			);
+
+		补充:常见的msyql管理工具
+			SQLyog(小海豚)
+			mysqlworkbech
+			navicat
+			toad
+			dbeaver
+			phpmyadmin
+	c.查看表结构
+		desc 表名
+		需求:查看goods表表结构
+		desc goods
+	d.修改表结构
+		新增列
+			需求:goods表中新增商品id(id) 数字类型
+			alter table goods add id int;
+		修改列
+			需求:goods表中id列修改为char类型
+			alter table goods modify id char(10);
+		删除列
+			需求:删除goods表中的id列
+			alter table goods drop column id;
+	e.删除表结构
+		删除数据和表结构
+		语法:drop table 表名;
+			需求:删除韩国表
+				drop table 韩国;
+				
+
+
 
 
 
