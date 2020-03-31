@@ -1,0 +1,81 @@
+1.常见的数据库软件
+	a.关系型
+		oracle
+		mysql
+		sqlserver
+	b.非关系型
+		mongodb   大数据、爬虫
+		redis     验证信息、消息队列  
+		cassandra facebook
+2.mysql的下载和安装
+	a.官网下载
+		a1.操作系统类型
+			unix
+			linux
+			windows
+		a2.操作系统位数
+			32位   i386 i686  x86
+			64位   x86_64 x64
+		a3.mysql的版本
+	b.集成软件安装(阉割版)
+		xampp
+		wamp
+		phpstudy
+	c.安装:傻瓜安装
+3.mysql的服务
+	c/s架构软件
+	客户端 ------------------/-------------服务器
+	mysql                                 mysqld
+	a.检查服务
+		tasklist | find "mysqld"
+	b.检查端口
+		mysql端口  3306
+		netstat -an | find "3306"
+4.mysql的登陆服务
+	a.mysql的登陆命令(命令提示符)
+		mysql
+			登陆本地数据库
+		mysql -u root -p
+			管理员登陆本地数据库
+				-u 用户
+				-p 输入密码
+		mysql -h 127.0.0.1 -u root -p
+			管理员登陆IP位127.0.0.1的数据库
+				-h 需要远程链接的IP
+	b.登陆方式
+		b1.进入到命令所在文件夹
+			F:
+			cd phpStudy\MySQL\bin
+		b2.设置环境变量
+			让系统找到可执行的命令
+			计算机--属性--高级--环境变量--系统变量--Path中添加
+			;mysql的bin文件夹的路径
+			确定--确定--确定
+5.基础命令
+	常说的数据库分为2部分(数据库软件，数据库数据)
+	mysql数据库是由表组成
+	mysql的表是由数据组成
+	mysql的管理员root
+	a.常见命令
+		show databases;
+			查看当前软件中有哪些数据库(名字)
+		select database();
+			查看当前数据库的名字
+			null(空)，没有选择任何数据库
+		use test;
+			设置当前数据库为test
+		show tables;
+			查看当前数据库有哪些表
+		select * from ecs_goods\G
+		select * from ecs_goods
+			查看表名为ecs_goods的所有数据
+
+
+
+
+
+
+
+
+
+
