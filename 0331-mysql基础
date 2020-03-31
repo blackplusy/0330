@@ -227,10 +227,33 @@
 			需求:查询ecs_goods表中本店售价范围1000-1999之间的所有信息
 				select * from ecs_goods where shop_price>=1000 and shop_price<=1999;
 				select * from ecs_goods where shop_price between 1000 and 1999;
-				
 		c4.空值
+			没有任何数据类型，没有任何值,空值不能用于比较和运算，查询时候使用is null或者is not null
+			需求:查询ecs_goods表中suppliers_id为非空的所有信息
+				select * from ecs_goods where suppliers_id is not null;
 		c5.模糊查询
-		c6.in
+			当信息不完整时候使用，通常和字符串类型一起使用
+			like
+			_     一个字符
+			%     任意个字符
+			需求:查询ecs_goods表中商品名称是诺基亚开头的所有信息
+				select * from ecs_goods where goods_name	like '诺基亚%';
+				查询ecs_goods表中商品名称是6结尾的所有信息
+				select * from ecs_goods where goods_name like '%6';
+				查询ecs_goods表中商品名称是6个字符的
+				select * from ecs_goods	where goods_name like '______';
+		c6.in 在...里面
+			或者的关系
+			需求:查询ecs_goods表中商品名称是诺基亚的或者kd876的所有信息
+			select * from ecs_goods where goods_name='诺基亚' or goods_name='KD876';
+			select * from ecs_goods where goods_name in ('诺基亚','KD876');
+		c7.常用函数
+			upper()   大写
+			lower()   小写
+			select goods_name,lower(goods_name),upper(lower(goods_name)) from ecs_goods;
+			round()   小数点保留几位
+			avg()     平均值
+			select avg(shop_price),round(avg(shop_price),2) from ecs_goods;
 
 
 
