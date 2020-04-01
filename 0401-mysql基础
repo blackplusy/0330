@@ -174,5 +174,9 @@ b.内联查询
 			select sn,sd from s where s# in (select s# from sc where c#!='C5')
 
 
+查询以C开头的国家有哪些城市?
 
+查询客户表中名字为MARY的所在城市?
+
+查询客户表中名字为MARY的所在国家?
 
