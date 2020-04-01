@@ -1,0 +1,88 @@
+1.基础命令
+	show databases;
+	select database();
+	use 数据库;
+	show tables;
+2.表结构
+	create table 表(
+		列 数据类型,
+		列 数据类型
+		。。。
+	);
+	alter
+	drop
+3.约束
+	唯一
+	主键
+	非空
+	检查
+	外键
+4.SQL分类
+	DDL
+	DML
+	DCL
+	DQL
+5.DML语句
+	insert
+	delete
+	update
+6.简单查询
+	where 条件
+	1>比较
+	2>关系
+	3>区间
+	4>空
+	5>模糊查询
+	6>in
+======================================
+1.多表查询
+当一张表无法满足条件的时候使用多表查询
+a.笛卡尔积
+	两张表不做任何关联产生的数据，无效数据增加，数据量成倍增加
+	所以引入内联查询、左联查询、右联查询
+	https://blog.csdn.net/weixin_37678117/article/details/81192245
+	select * from ecs_goods;
+	select * from ecs_category;
+	select * from ecs_goods,ecs_category;
+b.内联查询
+	语法:
+	select 列 from 表1,表2 where 表1.列=表2.列;
+	select 列 from 表1 inner join 表2 on 表1.列=表2.列;
+	关联的列判断
+		1.名字相同
+		2.作用相同
+		3.主外键关系
+	需求:查询商品名称是KD876的分类名称
+		1.分析列
+			商品名称
+			分类名称
+		2.分析表
+			商品名称(ecs_goods)
+			分类名称(ecs_category)
+		3.关联
+			select * from ecs_goods ,ecs_category 
+			where ecs_goods.cat_id=ecs_category.cat_id;
+		4.过滤
+			select cat_name from ecs_goods ,ecs_category 
+			where ecs_goods.cat_id=ecs_category.cat_id
+			and goods_name='KD876';
+	需求:查询分类名称是3G手机的所有商品名称
+		1.分析列
+			分类名称
+			商品名称
+		2.分析表
+			商品名称(ecs_goods)
+			分类名称(ecs_category)
+		3.关联
+			select * from ecs_goods g,ecs_category c
+			where g.cat_id=c.cat_id;
+		4.过滤
+			select g.goods_name from ecs_goods g,ecs_category c
+			where g.cat_id=c.cat_id
+			and c.cat_name='3G手机';			
+
+
+
+
+
+
