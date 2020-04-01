@@ -80,9 +80,50 @@ b.内联查询
 			select g.goods_name from ecs_goods g,ecs_category c
 			where g.cat_id=c.cat_id
 			and c.cat_name='3G手机';			
+#练习1:查询分类名称是3G手机或者服装的商品名称有哪些
+	1.  分类名称  商品名称
+	2.  ecs_category  ecs_goods
+	3.  select * from ecs_goods g1,ecs_category c1
+			where g1.cat_id=c1.cat_id
+	4.  select * from ecs_goods g1,ecs_category c1
+			where g1.cat_id=c1.cat_id
+			and c1.cat_name in ('3G手机','服装');
+	
+#练习2：查询商品本店售价范围在2000和3000之间所有的商品的分类名称 
+	select c1.cat_name from ecs_goods g1,ecs_category c1
+			where g1.cat_id=c1.cat_id
+			and g1.shop_price between 2000 and 3000;
 
+	--1.jpg
+	1.select * from test1 where department='计算机系'
+		and place='北京';
+	2.update test1 set department='信息学院'
+		where department='计算机系';
+	3.select t1.no,t1.name,t2.grade,t2.courses  from test1 t1,test2 t2
+	    where t1.no=t2.no
+	    and t2.grade>=75;
 
+	--2.jpg
+	1.  select s.name from student s,achievement a
+		where s.id=a.id
+		and a.mark>85;
+	2.select count(*) from achievement where mark>=90;
+	3.insert into achievement values(7,80);
+	4.update achievement set mark=87 where id=3;
+	5.
+		delete from student where name='Betty';
+		delete from achievement where id=6;
 
-
+2.导入sakila数据库
+	1.下载sakila压缩包
+	2.解压sakila压缩包
+	3.进入到已经解压好的文件夹(命令提示符)
+	4.登陆mysql
+		mysql -u root -p
+	5.导入sakila-schema.sql
+		source sakila-schema.sql;
+	6.导入sakila-data.sql
+		source sakila-data.sql;
+		
 
 
