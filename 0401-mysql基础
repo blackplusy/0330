@@ -133,7 +133,7 @@ b.内联查询
 			分类名称
 		2.分析表
 			ecs_goods
-			ecs_cateogry
+			ecs_category
 		3.关联列
 			cat_id
 		4.
