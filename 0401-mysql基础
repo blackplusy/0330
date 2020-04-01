@@ -133,7 +133,7 @@ b.内联查询
 			分类名称
 		2.分析表
 			ecs_goods
-			ecs_category
+			ecs_cateogry
 		3.关联列
 			cat_id
 		4.
@@ -157,9 +157,21 @@ b.内联查询
 			select cat_id from ecs_goods where shop_price between 1000 and 3000;
 		2.查询ecs_category表中cat_id为上面查询出来结果的分类名称		
 			select cat_name from ecs_category where cat_id=(select cat_id from ecs_goods where shop_price between 1000 and 3000);
-
-
-
+	--7.jpg
+		1.
+		查询c表中满足条件的c#
+			select c# from c where cn='税收基础';
+		查询sc表中c#为上面查询出来的s#
+			select s# from sc where c# in (select c# from c where cn='税收基础');
+		查询s表中s#为上面查询出来的学号和名字
+			select s#,sn from s where s# in (select s# from sc where c# in (select c# from c where cn='税收基础'));
+		2.
+		查询sc表中满足条件的s#
+			select s# from sc where c#='C2';
+		查询s表中满足s#为上面查询出来的sn和sd
+			select sn,sd from s where s# in (select s# from sc where c#='C2')
+		3.
+			select sn,sd from s where s# in (select s# from sc where c#!='C5')
 
 
 
