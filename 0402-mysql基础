@@ -157,6 +157,43 @@ truncate table dt_pay;
 			查看当前数据中有哪些集合
 		db.system.version.find()
 			查看system.version集合中所有文档 
+	e.CURD(增删改查)
+		文档的新增
+			db.xiyouji.insert({name:'tangsir',age:18})
+			db.xiyouji.insert({name:'shasir',age:20,jingli:'3句话'})
+		文档的修改
+			db.xiyouji.update({age:18},{$set:{name:'5kong'}})
+		文档的删除
+			db.xiyouji.remove({name:'shasir'})
+		文档的查看
+			db.xiyouji.find()
+			db.xiyouji.find({age:18})
+	f.文档的新增
+		f1.新增普通文档
+			db.xiyouji.insert({name:'8jie'})
+		f2.新增文档指定_id
+			db.xiyouji.insert({_id:0,name:'whitehorse',age:30})
+		f3.新增内嵌文档
+			db.xiyouji.insert({name:'5kong',jingli:{kill:1000,hit:2}})
+		f4.新增多个文档
+			 db.xiyouji.insert([{name:'nezha'},{name:'redhair'},{name:'tai2'}])
+	g.文档的删除
+		g1.删除指定文档
+			db.xiyouji.remove({name:'8jie'})
+		g2.删除所有文档
+			db.xiyouji.remove({})
+	h.文档的查看
+		h1.查看所有文档
+			db.xiyouji.find()
+		h2.查看指定文档
+			db.xiyouji.find({name:'5kong'})
+		h3.查看指定属性
+			db.xiyouji.find({},{_id:0,name:1})
+		h4.查看指定文档的指定属性
+			db.xiyouji.find({name:'5kong'},{_id:0,age:1})
+
+
+
 
 
 
