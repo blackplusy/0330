@@ -57,5 +57,12 @@ truncate table dt_pay;
   		select cat_id from ecs_goods group by cat_id having count(goods_name)>5;
   		查询ecs_category表中cat_id为上面查询出来结果的xxx
   		select cat_name from ecs_category where cat_id in (select cat_id from ecs_goods group by cat_id having count(goods_name)>5);
+查询每个国家有多少个城市,要求显示国家名称,城市数量?
+
+查询每个城市有多少个客户,要求显示城市名称,客户数量(计算客户id)
+
+查询C开头的国家,每个国家有多少个城市
+
+城市数量超过30的国家名称
 
 
