@@ -1,0 +1,61 @@
+--qq笔试题
+1.select * from emp where deptno=30;
+2.seelct ename,empno,deptno from emp;
+3.select ename from emp where comm>sal;
+4.select ename from emp where comm>0.6*sal;
+--6.jpg
+1.create table user (
+	userid int primary key,
+	username varchar2(20) not null,
+	password varchar2(20) not null,
+	crtime   date  not null
+);
+2.insert into user values(1002,'username','password','2015-01-01')
+--3.png
+select * from dt_pay where salary>(select avg(salary) from dt_pay);
+select * from dt_pay;
+truncate table dt_pay;
+=====================================================================
+1.分组查询
+	按照某种属性进行分类
+	a.分组函数(聚合函数)
+		max() 		最大
+		min() 		最小
+		avg() 		平均
+		sum()     	求和
+		count()     计数
+		分组函数通常和分组一起使用，也可以单独使用
+		需求:查询ecs_goods表中最高、最低本店售价
+			select max(shop_price),min(shop_price) from ecs_goods;
+		需求:查询本店售价高于平均本店售价的商品
+			select avg(shop_price) from ecs_goods;
+			select goods_name from ecs_goods where shop_price>(select avg(shop_price) from ecs_goods);
+		注意:count(*)代表计算所有的列，包含空值，count(goods_name)代表计算goods_name列，不包含空值
+	b.分组查询
+		语法:
+		select 列 from 表
+			where 条件
+				group by 分组条件
+					having 分组后过滤条件
+		分组条件通常是每后面跟的
+		需求:查询ecs_goods表中每种分类id对应多少商品，要求显示分类id，商品数量
+			select cat_id,count(*) 数量 from ecs_goods group by cat_id;
+		需求:查询每种商品分类有多少商品,要求显示分类名称，商品数量
+			select c.cat_name,count(g.goods_name) from ecs_goods g,ecs_category c
+			where g.cat_id=c.cat_id
+			group by c.cat_name;
+	c.分组后过滤
+		先分组，在已经分组了的数据的基础上再进行查询
+		where     分组前过滤，后面不能直接跟分组函数
+		having    分组后过滤，后面可以直接跟分组函数
+		需求:查询商品数量超过5的商品分类名称
+		select c.cat_name,count(g.goods_name) from ecs_goods g,ecs_category c
+		where g.cat_id=c.cat_id
+		group by c.cat_name
+  		having count(g.goods_name)>5;
+  		查询ecs_goods表中满足条件的cat_id
+  		select cat_id from ecs_goods group by cat_id having count(goods_name)>5;
+  		查询ecs_category表中cat_id为上面查询出来结果的xxx
+  		select cat_name from ecs_category where cat_id in (select cat_id from ecs_goods group by cat_id having count(goods_name)>5);
+
+
