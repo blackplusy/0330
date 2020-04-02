@@ -104,3 +104,63 @@ truncate table dt_pay;
 			select * from ecs_goods limit 10
 		需求:查询ecs_goods的11到15行
 			select * from ecs_goods limit 10,5
+==================================================================
+1.mongodb
+	非关系型数据库
+	a.下载和安装
+		操作系统类型
+		操作系统位数
+		软件版本
+		a1.安装
+			1>解压压缩包
+			2>设置环境变量
+				计算机--属性--高级--环境变量--系统变量--Path中添加
+				;mongodb的bin文件夹的路径
+				确定--确定--确定
+	b.mongodb的软件架构
+		c----/----s
+		mongo    mongod
+		mongo    mongodb的客户端服务
+		mongod   mongodb的服务端服务
+		b1.启动服务(命令提示符)
+			启动命令
+			mongod --dbpath D:\data
+			mongod --dbpath D:\data --logpath D:\data\mongo.log
+			--dbpath 	数据库数据存放的位置(一定要存在)
+			--logpath   日志存放的位置(日志文件名字随意)
+		b2.检查服务和端口(命令提示符)
+			mongodb主服务 mongod
+				tasklist | find "mongod"
+			mongodb的端口 27017
+				netstat -an | find "27017"
+	c.登陆mongodb
+		mongo
+			登陆本地test数据库
+		mongo 127.0.0.1/admin
+			登陆IP为127.0.0.1的admin数据库
+		mongo 127.0.0.1:27017/admin
+			登陆IP为127.0.0.1端口为27017的admin数据库
+	d.mongodb基础命令
+		mysql    mongodb
+		数据库   数据库
+		表       集合
+		数据     文档
+		mongodb数据库是由集合组成
+		mongodb的集合是由文档组成
+		show databases
+		show dbs
+			查看当前有哪些数据库
+		use admin
+			当前数据库切换为admin
+		show tables
+		show collections
+			查看当前数据中有哪些集合
+		db.system.version.find()
+			查看system.version集合中所有文档 
+
+
+
+
+
+
+
