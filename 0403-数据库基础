@@ -310,7 +310,7 @@ db.emp.find({$and:[{comm:{$ne:null}},{$and:[{sal:{$gt:800}},{sal:{$gt:1500}},{sa
 			win+r--cmd--sqlplus / as sysdba（sqlplus是一个命令工具[管理员登陆本地数据库]）
 			select status from v$instance;(查看数据库状态)
 			如果是open说明oracle服务已经启动
-			shutdown immdiate;
+			shutdown immediate;
 			关闭数据库服务
 			startup;
 			启动数据库服务
@@ -333,6 +333,44 @@ db.emp.find({$and:[{comm:{$ne:null}},{$and:[{sal:{$gt:800}},{sal:{$gt:1500}},{sa
 			  )
 		测试TNS配置是否正确
 		win+r--cmd--tnsping orcl(测试是否可以连通oracle数据库)
+2.oracle的用户操作
+	oracle默认2个管理员用户，使用这两个用户登陆时候必须用sysdba身份
+		sys    大王
+		system 小王
+		a.创建用户
+			语法:create user 用户名 identified by 密码;
+			需求:创建用户kobe，密码nba
+			create user kobe identified by nba;
+			使用sqlplus工具进行测试
+			sqlplus kobe/nba
+		b.修改用户
+			锁定和解锁
+			alter user 用户 [identified by 密码 ] account unlock(lock)
+			需求:解锁用户scott
+			alter user scott account unlock;
+		c.删除用户
+			语法:drop user 用户名
+			需求:删除用户kobe
+			drop user kobe;	
+
+3.用户的权限
+	常见权限
+		connect   链接数据库权限
+		resource  调用数据库资源权限
+		dba       数据库管理员权限
+		a.授权
+			语法:grant 权限 to 用户;
+			需求:赋予kobe用户链接和调用数据库资源权限
+			grant connect,resource to kobe;
+		b.回收授权
+			语法:revoke 权限 from 用户
+			需求:收回kobe用户的链接权限
+			revoke connect from kobe;
+		c.角色
+			权限的集合
+				normal 	普通用户权限
+				sysoper	系统操作员权限
+				sysdba  管理员权限
 
 
 
