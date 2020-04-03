@@ -524,3 +524,30 @@ db.emp.find({$and:[{comm:{$ne:null}},{$and:[{sal:{$gt:800}},{sal:{$gt:1500}},{sa
 			查询出来结果：内联查询结果+左表中有，右表中没有的右表显示为空
 		右联查询(右表中所有数据都有)
 			select 列 from 左表 right join 右表 on 左表.列=右表.列
+		c.分组查询
+		d.子查询
+		e.排序
+		f.分页
+			rownum 伪列，不属于任何一张表，理解为行号，查询时候一定要包括1
+			查询emp表中前10行数据
+			select * from emp where rownum<=10;
+			查询emp表中10-20行数据
+			select * from emp where rwonum<=20 and rownum>=10;
+
+			select t.*,rownum from emp t
+			select * from  ( select t.*,rownum rn from emp t )
+			where rn>=10 and rn<=20;
+		g.索引
+			可以理解为一本书的目录，提高查询效率，降低增删改的效率
+			语法：create index 索引名字 on 表(列);
+		h.视图
+			可以理解为一张临时表
+			create view 视图名字
+			as
+			查询语句
+			create view v_test
+			as
+			select ename,dname from emp e,dept d
+			where e.deptno=d.deptno;
+			select * from v_test;
+			
