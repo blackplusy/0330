@@ -371,6 +371,71 @@ db.emp.find({$and:[{comm:{$ne:null}},{$and:[{sal:{$gt:800}},{sal:{$gt:1500}},{sa
 				normal 	普通用户权限
 				sysoper	系统操作员权限
 				sysdba  管理员权限
+4.表结构操作
+	a.数据类型
+		数字  number  
+		字符  char  varchar varchar2
+		日期  date
+		char(10)      定长 新增6个字符，存储存10位，速度快
+		varchar(10)   变长 新增6个字符，存储6位，速度慢
+	b.建表
+	c.约束
+		主键 列中数据唯一，不能为空，每张表中只能有一个
+		需求:创建表银行(bank),流水单号(id) 数字，主键约束，业务人员名字(name) 字符类型
+			create table bank(
+					id number primary key,
+					name char(10)
+				);
+		唯一 列中的数据唯一，可以为空主要用于主键约束的补充
+		需求:创建表info，身份证id 字符类型30个字符，主键约束，电话(tel) 字符类型13个字符,唯一约束
+			create table info(
+				id char(30) primary key,
+				tel char(13) unique
+			);
+		非空: 列中的数据不能为空
+			创建表信息(dinfo),名字(name) 字符类型 不能为空，年龄(age) 数字类型
+			create table dinfo(
+				name char(10) not null,
+				age number
+				);
+		检查: 检查列中的数据是否满足条件
+			创建表user，name 字符类型,性别 sex 字符类型 只能是男或者女
+			create table user(
+				name char(10),
+				sex char(10) check(sex='男' or sex='女')
+			);
+
+		外键:表中列中的数据依赖于另外一张表中的列
+			被参考表的被参考列一定存在
+			参考表和被参考表数据类型一致
+			被参考表必须是主键约束
+			create table customer(
+				id number primary key,
+				info char(10)
+			);
+			create table order1(
+				id number references customer(id),
+				orderinfo char(10)
+			);
+		create table 表 (
+			列 数据类型 constraint 约束名 primary key,
+			列 数据类型 unique,
+			列 数据类型 not null,
+			列 数据类型 check(检查条件),
+			列 数据类型 referneces 被参考表(被参考列)
+		);
+		默认值 default 
+		create table info1 (
+			name char(10),
+			minzu char(20) default '汉'
+		);
+		
+	d.查看表结构及约束
+		1>desc 表名
+		2>右键表--describe
+		3>小箭头
+		4>右键表--view
+
 
 
 
