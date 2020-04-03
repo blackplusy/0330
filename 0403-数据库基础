@@ -429,13 +429,98 @@ db.emp.find({$and:[{comm:{$ne:null}},{$and:[{sal:{$gt:800}},{sal:{$gt:1500}},{sa
 			name char(10),
 			minzu char(20) default '汉'
 		);
-		
+
 	d.查看表结构及约束
 		1>desc 表名
 		2>右键表--describe
 		3>小箭头
 		4>右键表--view
 
+--建表测试
+
+	create table 宿舍表(
+		宿舍号  char(6) primary key,
+		宿舍电话 number check(宿舍电话>=6330000 and 宿舍电话<=6339999)
+	);
+
+	create table 同学表(
+		学号 char(6) primary key,
+		姓名 char(10) not null,
+		性别 char(2) check(性别='男' or 性别='女'),
+		年龄 number not null,
+		民族 char(20) default '汉' not null,
+		身份证 char(30) unique,
+		宿舍号 char(6) references 宿舍表(宿舍号)
+	)
 
 
+5.事务
+	一件事有开始就一定有结束
+	heygor-------bank------大佬们
+	rollback  回滚，数据库数据恢复到最后一次提交的状态
+	commit    提交，提交数据到数据库中
+	DML会触发事务的开始，所以需要commit或者rollback结束
 
+6.数据的新增、修改、删除
+	日期函数
+	insert into simida values('a',sysdate);
+	sysdate 系统当前时间
+	insert into simida values('b',
+	to_date('1988-01-01','YYYY-MM-DD'));
+7.数据的查询
+	a.简单查询
+		常用函数
+		upper()
+		lower()
+		round()
+		nvl() 空值处理函数
+			select comm,nvl(comm,0) from emp; 
+			判断comm列中数据是否为空，如果为空显示为0
+		distinct() 去重
+			select distinct(job) from emp;
+		all()  所有
+		any()  任何一个
+	b.多表查询
+		select 列 from 表1 inner join 表2 on 表1.列=表2.列;
+		select * from emp e inner join dept d on e.deptno=d.deptno;
+		自联查询
+			emp：
+				empno 员工号
+				ename 员工名字
+				job   职位
+				mgr   上司的员工号
+				hiredate 入职日期
+				sal   薪资
+				comm  佣金
+				deptno 部门号
+		查询SCTOTT的上司的名字(自联查询)
+			select mgr from emp where ename='SCOTT';
+			select ename from emp where empno=(select mgr from emp where ename='SCOTT');
+			select e.ename,d.ename  from emp e,emp d where e.mgr=d.empno and e.ename='SCOTT';
+		左联查询(左表中所有数据都有)
+			create table a(
+       			a number
+				);
+				insert into a values(1);
+				insert into a values(2);
+				insert into a values(3);
+				create table b(
+				       a number,
+				       b char(10)
+				);
+				insert into b values(1,'a');
+				insert into b values(2,'b');
+				insert into b values(4,'d');
+				commit;
+
+				select * from a;
+				select * from b;
+
+				select * from a,b
+				where a.a=b.a;
+
+			select * from a left join b on a.a=b.a;
+			select 列 from 左表 left join 右表 on 左表.列=右表.列
+			查询出来结果：内联查询结果+左表中有，右表中没有的右表显示为空
+		右联查询(右表中所有数据都有)
+			select 列 from 左表 right join 右表 on 左表.列=右表.列
