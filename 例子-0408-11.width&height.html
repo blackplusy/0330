@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		/*宽度和高度可以写像素也可以写百分比*/
+		/*如果值是百分比，相对于父元素而言*/
+		/*如果单独使用height可以在页面中显示相应内容*/
+		/*单独width不可以，width和height一起使用*/
+		.big {
+			width: 500px;
+			height: 500px;
+			background: pink;
+		}
+		.small {
+			height: 50%;
+			width: 50%;
+			background: green;
+		}
+		.a {
+			/*height: 30px;*/
+			width: 200px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="big" >
+		<div class="small"></div>
+	</div>
+	<div class="a"></div>
+</body>
+</html>
