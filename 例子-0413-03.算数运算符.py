@@ -1,0 +1,13 @@
+#coding=utf-8
+'''
+a=int(input('输入第一个数字'))
+b=int(input('输入第二个数字'))
+print(type(a))
+print(type(b))
+print('两个数字的和是%d'%(a+b))
+'''
+print(1000%3)
+print(10/3)
+print(10//3)
+print(10**3)
+print(4**0.5)
