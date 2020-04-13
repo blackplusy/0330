@@ -1,0 +1,49 @@
+1.python的应用
+	作用：推荐房产
+	a.爬虫---【链家、中原、58】--{地理位置、价格、采光、周边设施、楼层、朝向、评价}
+	b.数据分析---【影响好房子的因素】--{价格、地理位置、采光}
+	c.web网站---【vip】--{qq、wechat、tel}
+	d.行为分析(机器学习)--定投广告
+	e.自动化测试
+	f.自动化运维
+
+	a.爬虫                      13k
+	b.数据分析   R vs PYTHON     13k
+	c.web网站   JAVA VS PYTHON  8-13k
+	d.人工智能                  18k
+	e.自动化测试                13k
+	f.自动化运维                8-13k
+2.python的下载和安装
+	a.下载
+		https://python.org/
+		a1.操作系统类型
+			windows
+			linux
+			unix
+		a2.操作系统位数
+			x86  i686 i386 32位操作系统
+			x64  x86_64    64位操作系统
+		a3.软件版本
+			python2
+			python3
+	b.安装
+		傻瓜安装(下一步)
+		Add Python To Path(添加python相关信息到环境变量里)
+3.python的开发环境
+	pycharm  
+	eclipse+pydev
+	sublime text
+	vi/vim
+	....
+4.python的运行环境
+	IDE(图形开发工具)
+	IDLE
+	命令提示符(win+r--cmd)---python
+	命令提示符---python 文件名
+
+
+
+
+
+
+
