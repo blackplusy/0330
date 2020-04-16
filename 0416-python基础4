@@ -54,4 +54,20 @@
 				http://npm.taobao.org/mirrors/chromedriver/
 			3>下载后把解压后的文件复制到python的安装文件夹下
 			4>测试代码
-
+		a5.常见问题
+			1>命令提示符中提示pip不是系统命令
+				解决办法:
+				11>进入到python安装路径下的Scripts文件夹中进行操作
+				12>设置环境变量
+						计算机--属性--高级--环境变量-系统变量--Path中添加
+						;python的安装路径下的Scripts文件夹--确定x3
+			2>没有安装selenium模块
+				解决办法
+				21>重装selenium(pip\源码)
+				22>pycharm的设置
+						file--settings--project-project interpreter (默认....venv\python.exe)
+						--小螺丝--add--system interpreter--点击...--找到python.exe
+						(需要把project interpreter替换为系统中的python)
+			3>webdriver need xxx in path(webdriver 系统环境变量中没设置)
+				解决办法
+						把下载好的webdriver复制到python的安装路径下
