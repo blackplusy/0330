@@ -25,7 +25,7 @@
 			安装方法：
 				下载模块压缩包
 				解压压缩包
-				进入到解压后的文件夹，执行python setup.py install
+				进入到解压后的文件夹，(命令提示符)执行python setup.py install
 		3.easy install 方式
 			easy  install 包名字
 			easy  install 包.egg
@@ -37,3 +37,21 @@
 			xxx已经存在，删除
 		如果该文件不存在，创建该文件，并且写入到日志(1.log)文件中
 			xxx不存在，已经创建
+2.自动化测试
+	a.自动化测试环境搭建
+		a1.python的安装
+		a2.pycharm的安装和配置(interpreter)
+		a3.selenium模块安装
+			1>win+r--cmd--pip install selenium
+			2>下载源码--解压--python setup.py install
+		a4.chrome webdriver的安装
+			selenium 2.x版本自带firefox浏览器驱动
+			selenium 3.x版本所有浏览器驱动都要自己下载(webdriver和浏览器的版本需要对应)
+			强烈建议:关闭浏览器自动更新
+			1>查看chrome的版本
+				帮助--关于xxx    81.0.4044.113
+			2>下载chrome webdriver驱动(对应浏览器版本)
+				http://npm.taobao.org/mirrors/chromedriver/
+			3>下载后把解压后的文件复制到python的安装文件夹下
+			4>测试代码
+
