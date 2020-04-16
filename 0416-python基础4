@@ -71,3 +71,26 @@
 			3>webdriver need xxx in path(webdriver 系统环境变量中没设置)
 				解决办法
 						把下载好的webdriver复制到python的安装路径下
+3.selenium的元素定位方法
+	浏览器的F12功能(开发者工具)，右键元素检查，查看对应元素的前端代码
+	a.对元素的常见操作
+		click()   点击
+		clear()   清空
+		send_keys() 发送输入内容
+	b.id定位
+	c.class定位
+	d.tag定位
+			html是通过tag来定义功能的比如input标签
+			工作中直接使用比较少，很难通过tag标签去区分不同元素
+	e.通过link定位
+			专门定位超文本链接，比如百度新闻等
+	f.通过partial_link定位
+			超文本链接文本很长，全部输入会浪费资源，这种方式叫做模糊匹配
+	g.xpath定位
+			理想状态下，页面中会有id，name,class，超链接等等，实际情况则不是
+	h.css定位
+			类选择器    .类名
+			id选择器    .id名
+			标签
+	i.通过name定位
+			
