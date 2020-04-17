@@ -107,4 +107,51 @@
 			and  同时满足多个条件
 			or   满足一个条件即可
 			$x("//*[@target='_blank' and @href='http://tieba.baidu.com'] ")
+8.ecshop环境搭建
+	win:
+		1.集成环境
+			xampp(a:apache  m:mysql p:php perl  x:任意操作系统)
+			wamp (w:windows )
+			phpstudy
+		2.常见搭配
+			win+apache+mysql
+			win+iis+sqlserver
+			linux+apache+mysql
+			linux+nginx+mysql
+		3.phpstudy(phpstudy 2016)
+			a.安装(傻瓜安装)
+			b.文件夹简介
+				apache  web服务器
+					bin  存放命令
+					conf 存放配置
+					logs 存放日志
+					httpd.conf apache的配置文件
+				mysql   数据库服务器
+					bin   存放命令
+					data  存放数据的位置
+					my.ini  mysql的配置文件
+				WWW
+					项目所在文件夹
+		4.服务的启动
+			apache 的主服务 httpd  端口:80
+			mysql的主服务  mysqld  端口:3306
+			1>查看进程
+				win+r--cmd--tasklist | find "httpd"
+				tasklist  查看系统中所有进程
+				|         管道，前面的输出作为后面的输入
+				find      搜索
+			2>查看端口
+				netstat -an | find "3306"
+		5.复制ecshop文件夹到WWW文件夹中
+		6.浏览器中输入IP地址/ecshop1,按照提示安装
+				配置系统注意
+				1.数据库用户名root
+				2.密码       root
+				3.数据库名   test
+				注意:密码不要以数字开头
+
+
+
+
+
 
