@@ -79,4 +79,32 @@
 			switch_to.frame()                 进入frame
 			switch_to.default_content()       返回主文档
 			switch_to.parent_frame()          返回上一层frame
+7.xpath定位
+	xpath语法参考w3school
+	针对于xml路径的语言，通过元素的路径来找到这个元素
+	1.工具
+		浏览器
+		F12
+	2.用法
+		/   绝对路径，从根节点获取元素
+		//  相对路径，所有子节点中搜索对应元素
+		@   选取属性
+		.   当前节点
+		..  当前节点的父节点
+		可以通过F12中的$x()进行调试
+		1>xpath支持id、class、name定位功能
+			$x("//*[@id='kw']")
+			$x("//input[@class='s_ipt']")
+			$x("//*[@name='wd']")
+		2>如果没有id、class、name属性，xpath支持其他属性定位
+			$x("//*[@autocomplete]")
+			$x("//*[@autocomplete='off']")
+		3>通过层级关系定位元素
+			a.通过相对路径定位元素
+			b.通过绝对路径定位元素
+				$x("/html/body/div[1]/div[1]/div[3]/a[4]")
+		4>xpath运算符
+			and  同时满足多个条件
+			or   满足一个条件即可
+			$x("//*[@target='_blank' and @href='http://tieba.baidu.com'] ")
 
