@@ -61,5 +61,22 @@
 		b5.两个其他属性组合
 		b6.模糊属性定位
 	c.层级定位
-
+6.框架切换
+	1.主文档切换到frame中(switch_to.frame函数)
+		switch_to.frame()中填写框架的id或者名字(通常用id)
+	2.从frame切换到主文档
+		switch_to.default_content()
+	3.嵌套frame操作
+		开发时候会出现嵌套的frame
+		1>主文档切换到frame2，一层一层进入
+			br.switch_to.frame(frame1)
+			br.switch_to.frame(frame2)
+		2>子frame切换到父frame
+			相当于后退方法，随意切换
+			br.parent_frame()
+			如果当前已经是主文档，无效
+		3>总结
+			switch_to.frame()                 进入frame
+			switch_to.default_content()       返回主文档
+			switch_to.parent_frame()          返回上一层frame
 
