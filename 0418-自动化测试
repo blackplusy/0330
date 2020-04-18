@@ -68,5 +68,23 @@
 			def __init__(self):
 				方法列表
 	2.调用方法
+9.继承
+	1.单继承
+		一个类派生另外一个子类，字类继承父类的方法和属性
+	2.多继承
+		子类继承多个父类的属性和方法
+	3.父类重写
+10.unittest基础
+	1.unittest关键属性
+		test fixture 每个测试用例之前会准备好的工作(数据库链接、资源链接、关闭操作)
+		test case    测试用例
+		test suite   测试套件(多个测试用例集合在一块)
+		test runner  测试运行器
+	2.unittest基础
+		unittest使用中，类的方法一定要以test开头，unittest可以自己找到对应用例
+		一个testcase是通过继承unittest.TestCase创建，单个单独测试方法定义，方法名以test开头
+		每个测试关键是调用assert()来检查预期的结果,assertTrue()....来验证一个条件
+		这些方法不是断言语句，测试运行器可以积累所有测试结果生成一个测试报告
+		
 
 
