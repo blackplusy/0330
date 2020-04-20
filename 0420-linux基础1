@@ -1,0 +1,29 @@
+D:\\测试用软件\\vm
+D:\\测试用软件\\iso
+================================
+1.常见的操作系统平台
+	unix   
+		mac os  IOS  AIX
+	linux
+		安卓   		gentoo
+		centos 		redhat
+		opensuse    suse
+		ubuntu      kali/backtrack
+		麒麟        COS
+		红旗        redstar
+	windows 
+		Server
+			winserver 03 08 12 16
+		Desktop	
+			win7 xp win10 .....
+2.云、大数据、虚拟化
+	云:
+		云存储
+		云计算
+	大数据：
+	虚拟化：
+		虚拟机(虚拟化软件)
+		vmware  速度慢  稳定
+		vbox    速度快  不稳定
+		kvm     基于linux内核
+
