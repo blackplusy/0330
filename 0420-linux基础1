@@ -84,3 +84,36 @@ D:\\测试用软件\\iso
 			cd -            目录切换到上一次操作所在目录
 			cd ~            目录切换为家目录
 			cd              目录切换为家目录
+	e.帮助
+		man   官方手册
+			man ls   查看ls命令官方手册
+		info  说明文档
+			info ls  查看ls命令的说明文档
+		--help 常用参数
+			ls --help 查看ls命令的常见参数
+	f.linux的网络设置
+		f1.linux操作系统的网络设置
+			1>查看网卡IP地址信息
+				ifconfig
+				ifconfig eth0(eth0 是linux第一块网卡)
+			2>win下输入win+r--cmd--
+				ping 192.168.4.x(x:1-254)
+				如果出现无法访问或者超时，说明该IP地址没有人使用，可以作为linux的IP来使用(144)
+			3>linux中命令设置网卡信息
+				setup--网络设置--edit devices--eth0--名称、设备不要改动、取消dhcp(空格)、填入IP地址、子网掩码--ok--save--save&quit--退出--service network restart
+				service network restart 重启网络服务
+		f2.虚拟机的网络设置
+			右键标签--网络适配器--桥接、复制物理网络链接状态--确定
+			虚拟机的网络设置方式
+			1>桥接
+				客户机可以和局域网中其他主机进行通信
+			2>网络地址转换
+				客户机可以通过地址转换共享宿主机上网，不能和局域网中其他主机进行通信
+			3>仅主机
+				客户机和宿主机的私有网络，不能和局域网中其他主机进行通信
+		f3.测试
+			win:  	win+r--cmd--ping linux的IP
+			linux:  ping windows的IP(win+r--cmd--ipconfig) 
+
+
+
