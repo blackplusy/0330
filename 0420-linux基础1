@@ -142,8 +142,6 @@ D:\\测试用软件\\iso
 			剪切当前目录下的c目录到g目录中(g目录存在)
 		mv g h
 			重命名当前目录下的g目录为h目录(h目录不存在)
-
-
 	/opt
 	+------A
 	|      +--A1
@@ -152,5 +150,55 @@ D:\\测试用软件\\iso
 	+------B
 	       +--C
 	       +--D
-
-
+	mkdir A/A1 A/A2 B/C B/D -p
+	mkdir A/A{1,2} B/{C,D} -p
+6.文件操作
+	a.创建文件
+		a1.touch
+			touch a
+				当前目录下创建空文件a
+			touch b /opt/c
+				当前目录下创建空文件b，/opt目录下创建空文件c
+		a2.重定向
+			>   覆盖
+			echo heygor>zhenshuai
+				覆盖heygor到zhenshuai文件中，如果没有该文件，自动创建
+			>> 	追加
+			echo zhenshuai>>heygor
+				追加zhenshuai到heygor文件中，如果没有该文件，自动创建
+			1>	正确信息写入到文件中
+			2>  错误信息写入到文件中
+			&>  所有信息都写入文件
+			echo 1
+				屏幕上输出1
+		a3.vi编辑器
+	b.删除文件
+		rm  a
+			删除当前目录下的a文件
+		rm -f 1.log
+			删除当前目录下的1.log文件
+		rm -rf *
+			删除当前目录下所有文件
+	c.复制文件
+		cp 2.log A
+			复制当前目录下的2.log到当前目录下的A目录(A目录存在)
+		cp 2.log 1.log
+			复制当前目录下的2.log到当前目录下并且命名为1.log(1.log目录不存在)
+	d.剪切/移动文件
+		mv *.log B
+			剪切当前目录下以log结尾的文件到B目录中(B目录存在)
+		mv heygor baigor
+			重命名当前目录下的heygor为baigor(baigor目录不存在)
+	e.查看文件
+		cat   不分页显示文件内容
+			cat install.log
+		less  分页显示文件内容，可以向上向下翻页，按q退出
+			less install.log
+		more  分页显示文件内容，只能向下翻页，按q退出
+			more install.log
+		head  查看文件前几行
+			head -3 install.log
+		tail  查看文件后几行
+			tail -7 install.log
+		vi/vim
+	f.修改文件
