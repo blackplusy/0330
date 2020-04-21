@@ -88,6 +88,90 @@ vi
 			查看压缩包文件属性信息
 		tar -xzvf test2.tgz
 			解压压缩包文件到当前目录下
+3.用户和权限
+	a.用户
+		/etc/passwd     用户配置文件
+		/etc/shadow     密码配置文件
+		/etc/group      组配置文件
+		a1.创建用户
+			useradd simon
+				创建simon用户
+			passwd simon
+				给simon用户设置密码
+		a2.修改用户(锁定、解锁)
+			usermod -L simon
+				锁定simon用户
+			usermod -U simon
+				解锁simon用户
+		a3.删除用户
+			userdel -r simon
+				删除simon用户
+	b.权限
+		b1.查看权限
+			ll install.log(查看install.log文件属性信息)
+			-rw-r--r-- 1 root root 35191 04-20 17:11 install.log
+		b2.文件属性信息
+			1：文件类型  d:目录  -：普通文件
+			2-10：文件的权限
+			11:文件节点
+			12：文件的拥有者
+			13：文件的拥有组
+			14：文件大小
+			15：最后修改时间
+			16：文件名字
+		b3.常用权限
+			r：读
+				目录：可以列表
+				文件：可以查看文件内容
+			w：写
+				目录：可以创建、删除、重命名文件
+				文件：修改文件内容
+			x：执行
+				目录：可以进入
+				文件：可执行(二进制文件或者脚本文件)
+		b4.权限的分组
+			rw-      			r--        r--
+			文件拥有者权限  文件拥有组权限  其他人权限
+		b5.系统对权限判断的过程
+			1>判断用户是否为文件拥有者，如果是，赋予拥有者权限
+			2>如果不是，判断是否为拥有组成员，如果是，赋予拥有组权限
+			3>如果都不是，赋予其他人权限
+			id 用户名(查看用户的组信息)
+		b6.文件权限的修改
+			chmod:直接修改权限
+				1>通过字符
+					u 	拥有者
+					g 	拥有组
+					o   其他人
+					a   所有人
+					chmod u+x install.log
+						修改文件权限拥有者增加执行权限
+					chmod g+x,o+x install.log
+						修改文件权限，拥有组和其他人拥有执行权限
+					chmod a-x install.log
+						修改文件权限，所有人取消执行权限
+				2>通过数字
+					r：4
+					w：2
+					x：1
+					-：0
+					chmod 777 install.log
+						修改文件权限，所有用户拥有读写执行权限
+					chmod 000 install.log
+						修改文件权限，所有用户没有任何权限
+			chown：修改文件属主来修改权限
+				 chown heygor install.log
+				 	修改文件拥有者为heygor
+				 chown :bin install.log
+				 	修改文件拥有组为bin
+				 chown root:root install.log
+				 	修改文件拥有者、拥有组为root
+
+
+
+
+
+
 
 
 
