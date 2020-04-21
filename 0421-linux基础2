@@ -166,6 +166,70 @@ vi
 				 	修改文件拥有组为bin
 				 chown root:root install.log
 				 	修改文件拥有者、拥有组为root
+4.常见的管理命令
+	ps -ef   当前系统中运行的所有进程
+		ps -ef | grep cat
+		ps -ef |grep sshd  
+			查看sshd(远程连接服务)进程是否正常启动
+		ps -ef |grep httpd
+			查看httpd(apache主服务)进程是否正常启动
+		ps -ef |grep mysqld
+			查看mysqld进程是否正常启动
+		ps -ef |grep tomcat
+			查看tomcat进程是否正常启动
+	pidof    查看当前进程的pid(pid也叫进程id)
+	kill  -9  pid  暴力杀
+	      -15 pid  温柔杀
+	top    监控系统资源
+	free -m
+		查看内存使用情况
+	vmstat 2 3
+		监控系统资源
+	chkconfig --list
+		查看开机启动服务
+	init 
+		系统默认的运行级别
+		init 0   关机
+		init 3   进入到字符界面
+		init 5   进入到图形桌面
+		init 6   重启
+	df -h
+		查看磁盘的使用率
+	mount
+		查看系统挂载情况
+
+5.搜索和管道
+	a.搜索
+		find    搜文件，速度慢
+			find /etc/ -name conf
+			/etc目录下搜索名字是conf的文件
+			find /etc/ -name *.conf
+			/etc目录下搜索名字是.conf结尾的文件
+		locate  搜文件，速度快
+			locate passwd
+			系统中搜索和passwd相关的文件
+		updatedb
+			刷新系统数据库
+		grep    搜内容
+			grep root /etc/passwd
+			搜索/etc/passwd文件中含有root的行
+			grep ^r /etc/passwd
+			搜索/etc/passwd文件中r开头的行
+			grep login$ /etc/passwd
+			搜索/etc/passwd文件中以login结尾的行
+			注意:-v不显示xxx内容
+	b.管道
+		|  前面的输出作为后面的输入
+		 cat install.log | grep -v 386$
+		 cat install.log | grep 386$
+		 head -7 install.log|tail -1
+
+
+
+
+
+
+
 
 
 
