@@ -59,6 +59,37 @@ vi
 		service iptables status  查看防火墙的状态
 		service iptables stop    关闭防火墙
 		service iptables start   开启防火墙
+2.包、压缩文件、压缩包
+	a.包文件(tar)
+		创建包文件时候，文件的名字通常以.tar结尾
+		tar -cvf test.tar Desktop/ install.log*
+			创建包文件包文件test.tar，打包内容Desktop目录和install.log开头的文件
+		tar -tvf test.tar
+			查看包文件中的文件属性信息
+		tar -xvf test.tar
+			解包包文件到当前目录下
+		tar -xvf test.tar -C /opt/
+			捷豹包文件到指定目录下(-C)
+	b.压缩文件(gzip)
+		du -sh 查看文件大小
+		gzip install.log
+			压缩文件当前目录下的install.log
+		gzip -l install.log.gz
+			查看压缩文件的压缩属性信息
+		gzip -d install.log.gz
+			解压文件到当前目录下
+	c.压缩包
+		通常压缩包是.tar.gz或者.tgz结尾的文件
+		tar -cvf test1.tar install.log*
+		gzip test1.tar
+		tar -czvf test2.tgz install.log*
+			创建压缩包文件
+		tar -tzvf test2.tgz
+			查看压缩包文件属性信息
+		tar -xzvf test2.tgz
+			解压压缩包文件到当前目录下
+
+
 
 
 
