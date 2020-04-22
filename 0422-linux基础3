@@ -1,0 +1,156 @@
+1.命令回顾
+hotname
+who
+whoami
+pwd
+ls
+cd
+man
+info
+ping
+setup
+ifconfig
+service
+mkdir
+rmdir
+cp
+mv
+touch
+echo
+cat
+less
+more
+head
+tail
+vi
+tar
+du -sh
+gzip
+useradd
+usermod
+userdel
+id
+chmod
+chown
+top
+ps
+free
+mount
+df -h
+kill
+chkconfig
+init
+rpm 
+netstat  查看端口信息
+	apache/nginx/iis   80
+	tomcat             8080
+	mysql              3306
+	oracle             1521
+	sshd               22
+========================================
+1.软件安装
+	a.软件安装方式
+		1>rpm安装
+		2>yum自动安装
+		3>二进制文件安装
+		4>源码安装
+	b.yum自动安装的配置
+		1>创建空目录用于挂载
+			mkdir /data
+		2>加载光驱
+			标签右键--cd/dvd--使用iso映像文件--选择光盘
+		3>挂载光驱
+			/dev/scd0   光盘的硬件
+			mount -o loop /dev/scd0 /data
+		4>yum的配置
+			cd /etc/yum.repos.d/(该目录下都是自动安装的配置文件)
+			vim rhel-debuginfo.repo
+			[rhel-debuginfo]              分类标签
+			name=test                     名字
+			baseurl=file:///data/Server   自动安装到哪里去找软件包
+			enabled=1 					  是否开启自动安装(1开启，0关闭)
+			gpgcheck=0                    光盘检查(1开启,0关闭)
+		5>测试yum
+			yum clean all
+				清理yum缓存
+			yum list 
+				所有可以自动安装的软件列表
+		6>安装apache相关服务(httpd)
+			yum install http* -y
+				-y代表自动安装依赖包
+		7>启动apache服务
+			service httpd start
+		8>检查
+			ps -ef |grep httpd
+			netstat -an | grep 80
+	c.ecshop项目部署
+		c1.web服务器后台架构
+			操作系统
+				unix
+				linux
+				windows
+			web服务器
+				apache   不支持java
+				nginx  	 轻量级web服务器(反向代理、负载均衡)
+				iis      微软
+				tomcat   支持java
+			数据库服务器
+				oracle   中大型
+				mysql    互联网
+		c2.常见搭配
+			操作系统      web服务器    数据库服务器
+			win             iis        sqlserver
+			                apache     mysql
+			                tomcat     mysql/oracle
+			linux           apache     mysql         (LAMP)
+			                nginx      mysql         (LNMP)
+			                tomcat     mysql/oracle
+		c3.ecshop项目环境部署
+			开发语言：	php
+			操作系统: 	rhel5
+			web服务器:	apache
+			数据库服务器：mysql
+			1>安装操作系统
+			2>设置IP地址、主机名、绑定主机名
+			3>关闭防火墙、selinux
+			4>配置好yum
+			5>安装项目所需软件
+				yum install mysql* -y
+				yum install php* -y
+				yum install http* -y
+			6>测试软件
+				service mysqld start
+				service httpd start
+				查看进程
+					ps -ef |grep httpd
+					ps -ef |grep mysqld
+				查看端口
+					lsof -i:3306
+					lsof -i:80
+			7>解压ecshop文件，并且通过winscp传入linux中的/var/www/html目录下
+			8>赋予/var/www/html/ecshop1权限
+				chmod 777 -R /var/www/html/ecshop1
+			9.浏览器中输入http://linux的IP/ecshop1，按照提示安装
+				注意:
+				数据库主机 localhost
+				端口号     3306
+				用户名     root
+				密码 
+				数据库名   test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
