@@ -162,6 +162,63 @@ netstat  查看端口信息
 			ps -ef |grep mongod
 		检查端口
 			lsof -i:27017
+3.tenorder项目环境部署
+	jre  java的运行环境
+	jdk  java的开发环境
+	a.jdk的安装和配置
+		jdk:
+			open java
+			oracle java
+		a1.下载(oracle官网)
+			1>操作系统类型
+				uname -a 查看操作系统相关内容
+			2>操作系统位数
+				i386 i686 	32位操作系统
+				x64 x86_64 	64位操作系统
+			3>把下载好的jdk压缩包传入linux中
+			4>解压jdk压缩包
+				tar -xzvf jdk-7u7-linux-i586.tar.gz
+			5>重命名解压后的目录
+				mv jdk1.7.0_07/  jdk1.7
+			6>查看当前系统的java版本
+				java -version
+			7>设置环境变量
+				vim ~/.bash_profile
+				JAVA_HOME=/root/jdk1.7
+				PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HOME/bin:/root/mongodb-linux-i686-2.4.9/bin
+			8>使环境变量生效
+				source .bash_profile
+			9>查看当前系统的java版本
+				java -version
+		a2.tomcat的安装和配置
+			1>下载(.tar.gz)
+			2>把下载好的tomcat压缩包传入linux中
+			3>解压tomcat压缩包
+			4>tomcat目录结构简介
+				bin  	存放tomcat命令的位置
+				logs	存放tomcat日志的位置
+				webapps 存放web项目代码位置
+				conf    存放tomcat的配置文件的位置
+				temp    存放临时文件的位置
+			5>启动tomcat服务
+				进入到tomcat的bin目录
+					cd /root/apache-tomcat-7.0.96/bin/
+				执行startup.sh
+			6>检查
+				进程：
+					ps -ef |grep java
+				端口：
+					netstat -an | grep 8080
+				浏览器中输入
+					linux的IP:8080
+
+
+
+
+
+
+
+
 
 
 
