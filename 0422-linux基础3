@@ -204,6 +204,7 @@ netstat  查看端口信息
 				进入到tomcat的bin目录
 					cd /root/apache-tomcat-7.0.96/bin/
 				执行startup.sh
+					./startup.sh
 			6>检查
 				进程：
 					ps -ef |grep java
