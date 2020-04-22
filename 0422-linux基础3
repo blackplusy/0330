@@ -137,6 +137,34 @@ netstat  查看端口信息
 				用户名     root
 				密码 
 				数据库名   test
+2.二进制文件的安装
+	a.把下载好的软件包传入linux中
+	b.解压压缩包
+		tar -xzvf mongodb-linux-i686-2.4.9.tgz
+	c.设置环境变量
+		c1.系统变量（所有用户）
+			/etc/profile
+		c2.用户变量（当前用户）
+			~/.bash_profile
+			~/.bashrc
+			在~/.bash_profile的PATH中添加mongodb的bin目录路径
+			PATH=$PATH:$HOME/bin:/root/mongodb/bin
+	d.使环境变量生效
+		source .bash_profile
+	e.启动mongod服务
+		mkdir /mongo
+		mongod --dbpath /mongo --logpath /mongo/mongo.log --fork
+		--dbpath  数据存放路径(目录)
+		--logpath 日志存放位置(文件)
+		--fork    后台运行
+	f.检查
+		检查进程
+			ps -ef |grep mongod
+		检查端口
+			lsof -i:27017
+
+
+
 
 
 
