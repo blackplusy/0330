@@ -194,7 +194,6 @@ netstat  查看端口信息
 			1>下载(.tar.gz)
 			2>把下载好的tomcat压缩包传入linux中
 			3>解压tomcat压缩包
-				 tar -xzvf apache-tomcat-7.0.96.tar.gz
 			4>tomcat目录结构简介
 				bin  	存放tomcat命令的位置
 				logs	存放tomcat日志的位置
@@ -205,7 +204,6 @@ netstat  查看端口信息
 				进入到tomcat的bin目录
 					cd /root/apache-tomcat-7.0.96/bin/
 				执行startup.sh
-					./startup.sh
 			6>检查
 				进程：
 					ps -ef |grep java
@@ -213,6 +211,20 @@ netstat  查看端口信息
 					netstat -an | grep 8080
 				浏览器中输入
 					linux的IP:8080
+
+4.思维导图
+	a.常见软件
+		客户端
+			xmind
+			freemind
+			mindmanager
+		网页端
+			processon
+			百度脑图
+	b.常见操作
+		1.insert按键   增加子主题
+		2.回车按键     增加同级主题
+		4.delete按键   删除主题
 
 
 
