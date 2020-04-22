@@ -194,6 +194,7 @@ netstat  查看端口信息
 			1>下载(.tar.gz)
 			2>把下载好的tomcat压缩包传入linux中
 			3>解压tomcat压缩包
+				 tar -xzvf apache-tomcat-7.0.96.tar.gz
 			4>tomcat目录结构简介
 				bin  	存放tomcat命令的位置
 				logs	存放tomcat日志的位置
