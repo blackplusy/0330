@@ -1,0 +1,42 @@
+1.tenorder项目环境部署
+a.安装操作系统
+b.设置IP地址、主机名、绑定主机名
+c.关闭防火墙、selinux
+d.安装配置java环境
+e.安装配置tomcat环境
+f.tenorder项目部署
+	f1.删除tomcat中webapps中所有文件
+		rm -rf /root/apache-tomcat-7.0.96/webapps/*
+	f2.把tenorder压缩包在win解压
+	f3.把解压好的目录传入tomcat的webapps目录中
+	f4.安装数据库(如果已经安装过可以略)
+		使用yum安装数据库
+		yum install mysql* -y
+		启动mysql数据库
+		service mysqld start
+	f5.设置mysql管理员的密码
+		mysqladmin -u root password 'test'
+		设置mysql管理员的密码为test
+	f6.导入tenorder.sql
+		目录切换到tenorder.sql所在目录
+		cd /root/apache-tomcat-7.0.96/webapps/tenorder/
+		登陆mysql数据库
+			mysql -u root -p
+		创建数据库
+			create database ten;
+		切换数据库
+			use ten;
+		导入数据库
+			source tenorder.sql;
+		退出数据库
+			exit
+	f7.按照提示修改数据库信息
+		vim /root/apache-tomcat-7.0.96/webapps/tenorder/WEB-INF/classes/database.properties
+	f8.重启tomcat服务器
+		进入到tomcat的bin目录
+		cd /root/apache-tomcat-7.0.96/bin/
+		执行./shutdown.sh
+		执行./startup.sh
+	f9.浏览器中输入linuxip:8080/tenorder
+
+
