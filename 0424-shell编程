@@ -97,6 +97,100 @@
 		隔行打印
 		awk 'NR%2==0{ print }' passwd
 
+a.终端设置：
+登录时候显示
+1.当前用户为 xxx
+2.当前IP为   xxx
+3.当前主机名为 xxx
+
+b.系统情况报告
+1.内存使用率超过80% 提示内存超标
+2.磁盘使用率超过80% 提示磁盘超标
+	获取 / 已用容量 a 总容量 b
+	磁盘使用率 c=a/b
+	80%==0.8
+	判断 c是否大于0.8，提示
+4.awk的高级应用
+	awk -F ":" 'BEGIN{处理文件前的代码块}{处理文件过程中的代码块}END{ 处理文件后代码块}' 文件
+	a.输出顶部增加come on baby，输出最后增加 get out of my face
+		awk -F ":" 'BEGIN{ print "come on baby"}{print }END{ print "get out"}' 0424/passwd
+	b.打印最后一行的最后一列
+		awk -F ":" 'END{ print $NF }' passwd
+	c.打印文件所有字段总数
+		awk -F ":" 'BEGIN{ count=0 }{ count+=NF }END{ print count }' passwd
+	d.打印字段数大于4的总行数
+		awk -F ":" 'BEGIN{ count=0 }NF>4{ count++}END{ print count }' passwd
+	e.awk代码写入到独立的文件中
+		文件名:01.awk
+		BEGIN{
+		        FS=":"
+		        count=0
+		}
+		{
+		        if ( NF>4 )
+		        {
+		                count++
+		        }
+		}
+		END{
+		        print count
+		}
+		程序执行 awk -f 01.awk passwd
+	f.awk的函数调用
+		print(参数) 			打印完毕后会自动换行
+		printf(参数列表)     格式化打印，定义格式，转义等等
+		echo |awk '{printf("%d--%s\n",12,"simida")}'
+	g.awk的循环
+		for (i=0;i<10;i++){
+			printf("%d",i)
+		}
+		文件名:02.awk
+		{
+		for(i=0;i<5;i++)
+		{
+		        printf("%d",i)
+		}
+		}
+		END{
+
+		print("over")
+		}
+		执行程序
+		echo |awk -f 02.awk
+	h.倒序排列所有字段
+		文件名：test.txt
+		1:2:3:4
+		a:b:c:d:e:f
+		处理后
+		4:3:2:1
+		f:e:d:c:b:a
+		awk文件:03.awk
+		BEGIN{
+		        FS=":"
+		}
+		{
+		        for(i=NF;i>0;i--)
+		        {
+		                if ( i>1 )
+		                {
+		                        printf("%s:",$i)
+		                }
+		                else
+		                {
+		                        printf("%s\n",$i)
+		                }
+		        }
+		}
+		执行程序
+		awk -f 03.awk test.txt
+
+
+
+
+
+
+
+
 
 
 
